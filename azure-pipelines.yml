@@ -23,14 +23,8 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
-  - job: Push
-    steps:
-    - task: Docker@2
-      inputs:
         containerRegistry: 'kaiyoserver'
         repository: 'test'
-        command: 'push'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+        tags: '$(tag)'
