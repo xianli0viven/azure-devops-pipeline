@@ -31,6 +31,7 @@ stages:
       inputs:
         containerRegistry: 'kaiyoserver'
         repository: 'test'
-        command: 'buildAndPush'
+        command: 'build'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
+        arguments: '--build-arg APP_ENV=$(APP-ENV) --build-arg GITHUB_USER=$(GITHUB-USER) --build-arg GITHUB_PASSWORD=$(GITHUB-PASSWORD)'
