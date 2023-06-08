@@ -26,9 +26,14 @@ stages:
         KeyVaultName: 'kaiyo-notification'
         SecretsFilter: '*'
         RunAsPreJob: true
-    - task: CmdLine@2
+    - task: Bash@3
+      name: EchoSamlpleSecret
+      displayName: EchoSamlpleSecret
       inputs:
-        script: 'echo $(GITHUB-USER) > secret.txt'
+          targetType: 'inline'
+          script: |
+            echo 'Hello world'
+            echo "sample-secret is:" $(GITHUB-USER)
     - task: Docker@2
       displayName: Build an image
       inputs:
