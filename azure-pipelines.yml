@@ -22,7 +22,7 @@ stages:
     steps:
     - task: AzureKeyVault@2
       inputs:
-        azureSubscription: 'p_client_kaiyo_notification_development(1)(946bf6c7-3254-4f6e-9430-edf88a9692d1)'
+        azureSubscription: 'keyvault'
         KeyVaultName: 'kaiyo-notification'
         SecretsFilter: '*'
         RunAsPreJob: true
